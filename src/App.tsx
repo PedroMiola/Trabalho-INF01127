@@ -1,12 +1,13 @@
-import "./App.css";
-import React from "react";
+import './App.css'
+import React from 'react'
+import { NoLoginPage } from 'pages/NoLoginPage'
 
 export const App = () => {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <NoLoginPage />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
