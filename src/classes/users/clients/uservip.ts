@@ -1,0 +1,3 @@
+class UserVIP extends User {
+
+}
