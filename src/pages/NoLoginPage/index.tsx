@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { SetStateAction, Dispatch } from 'react'
 import './styles.css'
 
-export const NoLoginPage = () => {
+import { MainContainer } from 'components/MainContainer'
+
+type NoLoginPageProps = {
+  setPage: Dispatch<SetStateAction<string>>
+}
+
+export const NoLoginPage = (props: NoLoginPageProps) => {
+  const GoToLoginPageButton = () => {
+    return <div onClick={() => props.setPage('Login')}>Faça o login</div>
+  }
   return (
     <>
-      <div className="container" id="blue-cobtainer">
-        Hello
-      </div>
-      <div className="container" id="blue-cobtainer"></div>
+      <MainContainer
+        Component1={<div>Hello</div>}
+        Component2={
+          <div>
+            <GoToLoginPageButton />
+          </div>
+        }
+      />
     </>
   )
 }

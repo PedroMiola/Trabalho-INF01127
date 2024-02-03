@@ -1,0 +1,19 @@
+.container {
+  height: 73.5%;
+  display: flex;
+  flex-direction: row;
+}
+
+#blue-container {
+  background-color: #252852;
+  width: 41.65%;
+  border-radius: 42px 0 0 42px;
+  justify-content: center;
+}
+
+#white-container {
+  background-color: #ffffff;
+  width: 58.35%;
+  border-radius: 0 42px 42px 0;
+  justify-content: center;
+}

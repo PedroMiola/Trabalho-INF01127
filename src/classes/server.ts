@@ -1,0 +1,1 @@
+type pokemon = {name: string, specie: string , type: [string, string], pokeIndex: number, level: number};
