@@ -1,0 +1,20 @@
+const validPokemonTypes: { [key: string]: boolean } = {
+    normal: true,
+    fire: true,
+    water: true,
+    electric: true,
+    grass: true,
+    ice: true,
+    fighting: true,
+    poison: true,
+    ground: true,
+    flying: true,
+    psychic: true,
+    bug: true,
+    rock: true,
+    ghost: true,
+    dragon: true,
+    dark: true,
+    steel: true,
+    fairy: true
+};
