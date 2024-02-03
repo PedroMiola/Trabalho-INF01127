@@ -15,8 +15,32 @@ class Rent{
         this.rentType = rentType;
     }
 
-    public extendEndDate(newDate: Date, endDate: Date){
-        this.endDate = newDate;
+    public extendEndDate(endDate: Date){
+        this.endDate = endDate;
+    }
+
+    public getPokemon(){
+        return this.pokemon;
+    }
+
+    public getUser(){
+        return this.user;
+    }
+
+    public getStartDate(){
+        return this.startDate;
+    }
+
+    public getEndDate(){
+        return this.endDate;
+    }
+
+    public getPayment(){
+        return this.payment;
+    }
+
+    public getRentType(){
+        return this.rentType;
     }
 
 }

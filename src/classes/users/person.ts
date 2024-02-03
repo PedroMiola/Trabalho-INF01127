@@ -25,6 +25,14 @@ abstract class Person {
         return this.cpf;
     }
 
+    getEmail(): string {
+        return this.email;
+    }
+
+    getPassword(): string {
+        return this.password;
+    }
+
     setName(name: string): void {
         this.name = name;
     }

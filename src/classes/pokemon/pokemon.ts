@@ -1,20 +1,20 @@
 class Pokemon {
-    private name: string;
-    private type: [string, string];
-    private species: string;
-    private pokeIndex: number;
-    private mountType: string;
-    private minAge: number;
-    private biography: string;
-    private price: number;
-    private isFree: boolean;
-    private historyRented: Rent[];
-    private id: bigint;
-    private pricePerDay: number;
+    name: string;
+    type: [string, string];
+    species: string;
+    pokeIndex: number;
+    mountType: string;
+    minAge: number;
+    biography: string;
+    //price: number; //pq tem price e price per day ainda ?
+    isFree: boolean; //isAvailable
+    historyRented: Rent[];
+    id: number;
+    pricePerDay: number;        
 
-    public constructor(name: string, type: [string, string], species: string, pokeIndex: number,
-        mountType: string, minAge: number, biography: string, price: number, isFree: boolean, 
-        historyRented: Rent[], id: bigint, pricePerDay: number) {
+    constructor(name: string, type: [string, string], species: string, pokeIndex: number,
+        mountType: string, minAge: number, biography: string, isFree: boolean, 
+        historyRented: Rent[], id: number, pricePerDay: number) {
         this.name = name;
         this.type = type;
         this.species = species;
@@ -22,14 +22,14 @@ class Pokemon {
         this.mountType = mountType;
         this.minAge = minAge;
         this.biography = biography;
-        this.price = price;
+        //this.price = price;
         this.isFree = isFree;
         this.historyRented = historyRented;
         this.id = id;
         this.pricePerDay = pricePerDay;
     }
 
-    public getTimesUsed(): number {//smh a gente botou como privado no diagrama do relatório 2
+    getTimesUsed(): number {//smh a gente botou como privado no diagrama do relatório 2
         return this.historyRented.length;
     }
 
@@ -39,6 +39,10 @@ class Pokemon {
 
     addRent(rent: Rent): void {
         this.historyRented.push(rent);
+    }
+
+    getId(): number{
+        return this.id;
     }
 
 }
