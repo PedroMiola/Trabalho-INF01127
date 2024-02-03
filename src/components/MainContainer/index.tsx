@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './MainContainer.css'
 
 type MainContainerProps = {
   Component1: React.ReactElement

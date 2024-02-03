@@ -1,5 +1,5 @@
 import React, { SetStateAction, Dispatch } from 'react'
-import './styles.css'
+import './NoLoginPage.css'
 
 import { MainContainer } from 'components/MainContainer'
 

@@ -1,5 +1,6 @@
 import { RegisterContainer } from 'components/RegisterContainer'
 import React from 'react'
+import './RegisterPage.css'
 
 export const RegisterPage = () => {
   return (

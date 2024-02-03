@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { MainContainer } from 'components/MainContainer'
-import './styles.css'
+import './LoginPage.css'
 
 type AwakenTrainerTextsProps = {
   setPage: Dispatch<SetStateAction<string>>
