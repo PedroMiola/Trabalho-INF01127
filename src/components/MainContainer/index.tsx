@@ -8,7 +8,7 @@ type MainContainerProps = {
 
 export const MainContainer = (props: MainContainerProps) => {
   return (
-    <div className="container">
+    <div className="main-container">
       <div id="blue-container">{props.Component1}</div>
       <div id="white-container">{props.Component2}</div>
     </div>

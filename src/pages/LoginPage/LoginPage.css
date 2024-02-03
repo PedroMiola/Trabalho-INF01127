@@ -1,8 +1,10 @@
 #div-line {
-  background-color:#e2504c;
+  background-color: #e2504c;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 350px;
-  height: 3px;
+  height: 5px;
 }
 
 .input {
@@ -29,6 +31,14 @@
   align-items: center;
 }
 
+.button-login {
+  margin-top: 20px;
+}
+
+.button-register {
+  margin-top: 20px;
+}
+
 #header-text {
   font-family: 'EncondeSansExpanded-SemiBold';
   font-size: 46px;
@@ -37,13 +47,14 @@
 }
 
 #body-text {
+  margin-top: 20px;
   font-size: 14px;
   width: 384px;
   margin: auto;
 }
 
 .text1 {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .text2 {

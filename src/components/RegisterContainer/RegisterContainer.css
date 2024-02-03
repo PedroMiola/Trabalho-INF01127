@@ -1,4 +1,6 @@
-.container {
+.register-container {
+  margin: 200px auto 0px auto;
+  width: 1323px;
   height: 73.5%;
   display: flex;
   flex-direction: row;

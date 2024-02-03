@@ -8,7 +8,7 @@ type RegisterContainerProps = {
 
 export const RegisterContainer = (props: RegisterContainerProps) => {
   return (
-    <div className="container">
+    <div className="register-container">
       <div id="blue-container-register">{props.Component1}</div>
       <div id="white-container-register">{props.Component2}</div>
     </div>

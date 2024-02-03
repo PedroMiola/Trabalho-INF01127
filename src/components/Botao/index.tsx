@@ -29,3 +29,20 @@
 //     color: 'white'
 //   }
 // })
+import React from 'react'
+import './Button.css'
+
+type ButtonProps = {
+  onClick: () => void
+  ButtonText: string
+}
+
+export function Button(props: ButtonProps) {
+  return (
+    <>
+      <div onClick={() => props.onClick()} className="button-class" id="button">
+        {props.ButtonText}
+      </div>
+    </>
+  )
+}

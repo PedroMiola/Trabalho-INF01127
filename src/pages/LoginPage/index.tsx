@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { MainContainer } from 'components/MainContainer'
+import { Button } from 'components/Botao'
 import './LoginPage.css'
 
 type AwakenTrainerTextsProps = {
@@ -22,8 +23,8 @@ const AwakenTrainerTexts = ({ setPage }: AwakenTrainerTextsProps) => {
         Sua aventura aguarda! AlokaMon - O seu caminho para a emoção Pokémon
         instantânea.
       </div>
-      <div onClick={() => setPage('Register')} id="dummy-button">
-        Cadastrar
+      <div className="button-register">
+        <Button onClick={() => setPage('Register')} ButtonText="Cadastrar" />
       </div>
     </div>
   )
@@ -40,14 +41,19 @@ const LoginContainer = () => {
           E-mail:
         </label>
         <br />
-        <input className="input" type="text" id="text" name="email" />
+        <input className="input" type="text" name="email" />
         <br />
         <label className="label" htmlFor="password">
           Password:
         </label>
         <br />
         <input className="input" type="text" id="text" name="password" />
-        <div id="dummy-button">Login</div>
+        <div className="button-login">
+          <Button
+            onClick={() => console.log('login feito')}
+            ButtonText="Login"
+          />
+        </div>
       </form>
     </div>
   )

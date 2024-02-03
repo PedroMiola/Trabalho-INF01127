@@ -1,10 +1,10 @@
 import './App.css'
 import React, { useState } from 'react'
-import { User } from 'classes/users/clients/user'
 import { NoLoginPage } from 'pages/NoLoginPage'
 import { UserPage } from 'pages/UserPage'
 import { LoginPage } from 'pages/LoginPage'
 import { RegisterPage } from 'pages/RegisterPage'
+import { CarroselPage } from 'pages/CarroselPage'
 
 export type Logininfo = {
   isLoggedIn: boolean
@@ -12,10 +12,6 @@ export type Logininfo = {
 }
 
 export const App = () => {
-  const [loginState, setLoginState] = useState<Logininfo>({
-    isLoggedIn: false
-  })
-
   const [currentPage, setCurrentPage] = useState<string>('NoLogin')
 
   return (
@@ -28,8 +24,10 @@ export const App = () => {
         <LoginPage setPage={setCurrentPage} />
       ) : currentPage === 'User' ? (
         <UserPage />
+      ) : currentPage === 'Carrosel' ? (
+        <CarroselPage />
       ) : (
-        <div>Oi</div>
+        <div>hello</div>
       )}
     </div>
   )

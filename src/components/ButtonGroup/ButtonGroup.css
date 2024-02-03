@@ -1,0 +1,8 @@
+.button-group {
+  flex-direction: column;
+  display: flex;
+  margin: auto;
+}
+#button-spacing {
+  margin: 20px auto 0px auto;
+}
