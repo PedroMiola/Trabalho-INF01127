@@ -36,7 +36,7 @@ const ContainerAzul = () => {
   )
 }
 
-const ContainerBranco = () => {
+const ContainerBranco = ( { setPage }: NoLoginPageProps ) => {
 
   return(
     <>
@@ -60,7 +60,7 @@ const ContainerBranco = () => {
             onClick={() => console.log("Vai pro catálogo")}/>
           <div className='espaco'></div>
           <Button
-              onClick={() => console.log("Vai pro login")}
+              onClick={() => setPage('Login')}
               ButtonText='Faça login / cadastre-se'/>
       </div>
     </>
@@ -82,7 +82,7 @@ export const NoLoginPage = (props: NoLoginPageProps) => {
           <ContainerAzul/>
         }
         Component2={
-          <ContainerBranco/>
+          <ContainerBranco setPage={props.setPage}/>
         }/>
     </>
   )
