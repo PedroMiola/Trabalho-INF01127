@@ -22,7 +22,7 @@ const LauraLapras = new Pokemon(
 
 export const CarroselPage = () => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon | undefined>(
-    LauraLapras
+    undefined
   )
 
   const Pikachu = new Pokemon(
