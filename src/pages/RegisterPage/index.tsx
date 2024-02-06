@@ -1,7 +1,103 @@
 import { RegisterContainer } from 'components/RegisterContainer'
-import React from 'react'
 import AlokamonA from '../../assets/images/alokamon_A.png'
 import './RegisterPage.css'
+import React, { useState } from 'react';
+
+const BirthdayBox = () => {
+  const [birthday, setBirthday] = useState('');
+
+  const handleBirthdayChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let formattedBirthday = event.target.value;
+    if (formattedBirthday.length === 2 || formattedBirthday.length === 5) {
+      formattedBirthday += '/';
+    }
+    setBirthday(formattedBirthday);
+  };
+
+  return (
+    <div style={{ marginLeft: '10px', width: '50%' }}>
+      <label htmlFor="birthday"></label>
+      <input
+        type="text"
+        id="birthday"
+        placeholder="Data de aniversário (dd/mm/yyyy)"
+        style={{ width: '100%', height: '50px' }}
+        pattern="\d{2}\/\d{2}\/\d{4}"
+        value={birthday}
+        onChange={handleBirthdayChange}
+      />
+    </div>
+  );
+};
+
+const CPFBox = () => {
+  const [cpf, setCPF] = useState('');
+
+  const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let formattedCPF = event.target.value;
+    if (formattedCPF.length === 3 || formattedCPF.length === 7) {
+      formattedCPF += '.';
+    } else if (formattedCPF.length === 11) {
+      formattedCPF += '-';
+    }
+    setCPF(formattedCPF);
+  };
+
+  return (
+    <div style={{ marginRight: '10px', width: '50%' }}>
+      <label htmlFor="CPF"></label>
+      <input
+        type="text"
+        id="CPF"
+        placeholder="CPF"
+        style={{ width: '100%', height: '50px' }}
+        pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+        value={cpf}
+        onChange={handleCPFChange}
+      />
+    </div>
+  );
+};
+
+const PasswordBox = () => {
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  return (
+    <>
+      <div style={{ marginRight: '10px', width: '50%' }}>
+        <label htmlFor="password"></label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Senha"
+          style={{ width: '100%', height: '50px' }}
+          value={password}
+          onChange={handlePasswordChange}
+        />
+      </div>
+      <div style={{ marginLeft: '10px', width: '50%' }}>
+        <label htmlFor="confirmPassword"></label>
+        <input
+          type="password"
+          id="confirmPassword"
+          placeholder="Confirmar senha"
+          style={{ width: '100%', height: '50px' }}
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        />
+      </div>
+    </>
+  );
+};
 
 const RegisterText = () => {
   return (
@@ -19,25 +115,25 @@ const RegisterText = () => {
         Cadastre-se
       </div>
 
-      <div style={{ marginTop: '20px', width: '70%', height: '100%' }}>
+      <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
         <label htmlFor="name"></label>
-        <input type="text" id="name" placeholder="Nome completo" />
+        <input type="text" id="name" placeholder="Nome completo" style={{ width: '80%', height: '50px' }} />
       </div>
 
-      <div style={{ display: 'flex', margin: '20px -10px' }}>
-        <div style={{ marginTop: '20px', width: '0%', height: '100%' }}>
-          <label htmlFor="CPF"></label>
-          <input type="text" id="CPF" placeholder="CPF" />
-        </div>
-        <div style={{ marginTop: '20px', width: '0%', height: '100%' }}>
-          <label htmlFor="dateOfBirth"></label>
-          <input
-            type="date"
-            id="dateOfBirth"
-            placeholder="Data de Nascimento"
-          />
-        </div>
+      <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+        <CPFBox />
+        <BirthdayBox />
       </div>
+
+      <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
+        <label htmlFor="email"></label>
+        <input type="email" id="email" placeholder="E-mail" style={{ width: '80%', height: '50px' }} />
+      </div>
+
+      <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+        <PasswordBox />
+      </div>
+      
     </div>
   )
 }
