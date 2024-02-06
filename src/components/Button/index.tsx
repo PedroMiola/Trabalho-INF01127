@@ -40,7 +40,7 @@ type ButtonProps = {
 export function Button(props: ButtonProps) {
   return (
     <>
-      <div onClick={() => props.onClick()} className="button-class" id="button">
+      <div onClick={() => props.onClick()} className="button-class">
         {props.ButtonText}
       </div>
     </>
