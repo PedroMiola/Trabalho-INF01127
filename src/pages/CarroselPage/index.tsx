@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import { MainContainer } from 'components/MainContainer'
 import { Pokemon } from 'classes/pokemon/pokemon'
 import { PokemonCarrosel } from 'components/Carrosel'
 import { PokemonDisplayComponent } from 'components/PokemonDisplay'
+import { ButtonGroup } from 'components/ButtonGroup'
 
 import './CarroselPage.css'
 
@@ -20,7 +21,11 @@ const LauraLapras = new Pokemon(
   200
 )
 
-export const CarroselPage = () => {
+type CarroselPageProps = {
+  setPage: Dispatch<SetStateAction<string>>
+}
+
+export const CarroselPage = (props: CarroselPageProps) => {
   const [currentPokemon, setCurrentPokemon] = useState<Pokemon | undefined>(
     undefined
   )
@@ -135,7 +140,20 @@ export const CarroselPage = () => {
 
   return (
     <MainContainer
-      Component1={<></>}
+      Component1={
+        <ButtonGroup
+          Button1OnClick={() => props.setPage('Carrosel')}
+          Button1Text="Carrosel"
+          Button2OnClick={() => props.setPage('Login')}
+          Button2Text="Login"
+          Button3OnClick={() => props.setPage('Login')}
+          Button3Text="Login"
+          Button4OnClick={() => props.setPage('Login')}
+          Button4Text="Login"
+          Button5OnClick={() => props.setPage('Login')}
+          Button5Text="Login"
+        />
+      }
       Component2={
         <>
           {!currentPokemon ? (
@@ -148,7 +166,7 @@ export const CarroselPage = () => {
             <PokemonDisplayComponent
               Poke={currentPokemon}
               onClose={() => setCurrentPokemon(undefined)}
-              onSelect={() => console.log('go to payment screen')}
+              onSelect={() => props.setPage('CreditCard')}
             />
           )}
         </>
