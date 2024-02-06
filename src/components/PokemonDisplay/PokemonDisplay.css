@@ -1,0 +1,94 @@
+/* TODO: atualizar estilos */
+
+.pokemon-display-container {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 400px;
+  margin: auto;
+}
+.pokemon-display-card-info-text {
+  font-family: 'EncondeSansExpanded-SemiBold';
+  margin-top: 2px;
+  margin-bottom: 2px;
+  justify-content: left;
+  width: fit-content;
+}
+#pokemon-display-header {
+  font-family: 'EncondeSansExpanded-SemiBold';
+  font-size: 20px;
+}
+#pokemon-display-divbar {
+  width: 100%;
+  background-color: #2b2929;
+  height: 3px;
+  margin: 10px 10px;
+}
+#pokemon-display-info-container {
+  display: flex;
+  flex-direction: row;
+}
+#pokemon-display-png {
+  width: 140px;
+  height: 140px;
+  border-style: solid;
+  border-radius: 15px;
+  border-color: black;
+  border-width: 2px;
+}
+#pokemon-display-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 408px;
+}
+#pokemon-display-content-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#pokemon-display-rent-price {
+  background-color: #d9d9d9;
+  font-size: 16px;
+  border-radius: 10px;
+  font-family: 'EncondeSansExpanded-SemiBold';
+}
+#pokemon-display-content-2 {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.pokemon-display-payment-options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#pokemon-display-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 40px;
+}
+#pokemon-display-credit-card {
+  background-color: #d9d9d9;
+  width: 100%;
+  margin-right: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#pokemon-display-money-card {
+  background-color: #d9d9d9;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.pokemon-display-rent-duration {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+#pokemon-desplay-rent-duration-label {
+}
+.pokemon-display-footer-button {
+}

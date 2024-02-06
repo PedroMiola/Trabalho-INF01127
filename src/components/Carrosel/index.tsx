@@ -86,7 +86,7 @@ const PokemonCardAdoption = (props: PokeCardProps) => {
 type PokeCarroselProps = {
   Pokemons: Pokemon[]
   isRentMode: boolean
-  setCurrentPokemon: Dispatch<SetStateAction<Pokemon>>
+  setCurrentPokemon: Dispatch<SetStateAction<Pokemon | undefined>>
 }
 
 export const PokemonCarrosel = (props: PokeCarroselProps) => {
