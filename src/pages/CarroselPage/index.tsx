@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { MainContainer } from 'components/MainContainer'
 import { Pokemon } from 'classes/pokemon/pokemon'
-import './CarroselPage.css'
 import { PokemonCarrosel } from 'components/Carrosel'
+import { PokemonDisplayComponent } from 'components/PokemonDisplay'
+
+import './CarroselPage.css'
 
 const LauraLapras = new Pokemon(
   'Laura',
@@ -11,7 +13,7 @@ const LauraLapras = new Pokemon(
   131,
   'Aquática',
   0,
-  'bio',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vestibulum magna magna, ac auctor magna dapibus at. Pellentesque interdum nisi augue, eu vestibulum turpis condimentum eu. Suspendisse nec euismod lorem. Proin nisl metus, interdum vel varius eget, sodales blandit tortor. Donec velit neque, auctor a dignissim non',
   true,
   [],
   1,
@@ -19,7 +21,9 @@ const LauraLapras = new Pokemon(
 )
 
 export const CarroselPage = () => {
-  const [currentPokemon, setCurrentPokemon] = useState(LauraLapras)
+  const [currentPokemon, setCurrentPokemon] = useState<Pokemon | undefined>(
+    undefined
+  )
 
   const Pikachu = new Pokemon(
     'Johnny',
@@ -133,11 +137,21 @@ export const CarroselPage = () => {
     <MainContainer
       Component1={<></>}
       Component2={
-        <PokemonCarrosel
-          Pokemons={PokemonList4}
-          setCurrentPokemon={setCurrentPokemon}
-          isRentMode={true}
-        />
+        <>
+          {!currentPokemon ? (
+            <PokemonCarrosel
+              Pokemons={PokemonList4}
+              setCurrentPokemon={setCurrentPokemon}
+              isRentMode={true}
+            />
+          ) : (
+            <PokemonDisplayComponent
+              Poke={currentPokemon}
+              onClose={() => setCurrentPokemon(undefined)}
+              onSelect={() => console.log('go to payment screen')}
+            />
+          )}
+        </>
       }
     />
   )
