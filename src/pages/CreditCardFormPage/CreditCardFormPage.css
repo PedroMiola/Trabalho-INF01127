@@ -1,0 +1,58 @@
+#credit-card-form-page-header {
+  font-family: 'EncondeSansExpanded-SemiBold';
+  font-size: 46px;
+  width: 384px;
+  margin: auto;
+}
+
+#credit-card-from-container {
+  margin: auto;
+  width: 560px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+#credit-card-form-row-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#credit-card-form-row-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+#credit-card-form-row-3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#credit-card-number {
+  width: 48%;
+}
+
+#credit-card-due-date {
+  width: 48%;
+}
+
+#credit-card-form-verify-button {
+  height: 45px;
+  font-size: 20px;
+  width: 150px;
+  justify-content: center;
+  margin: 20px auto 0px auto;
+}
+
+.credit-card-form-input {
+  background-color: #d9d9d9;
+  font-size: 20px;
+  width: 100%;
+  height: fit-content;
+  font-family: 'EncondeSansExpanded-SemiBold';
+}
