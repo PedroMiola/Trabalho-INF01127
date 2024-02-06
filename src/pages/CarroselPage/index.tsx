@@ -1,58 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MainContainer } from 'components/MainContainer'
-import { ButtonGroup } from 'components/ButtonGroup'
 import { Pokemon } from 'classes/pokemon/pokemon'
+import './CarroselPage.css'
+import { PokemonCarrosel } from 'components/Carrosel'
 
-type PokeInfoProps = {
-  Pokemon: Pokemon
-}
-
-const PokeInfo = (props: PokeInfoProps) => {
-  const fullName = `${props.Pokemon.name}, ${props.Pokemon.species}`
-  const minAge = props.Pokemon.getMinAge()
-
-  return (
-    <div>
-      <h1>{fullName}</h1>
-      <p>Type: {props.Pokemon.type.join(', ')}</p>
-      <p>Montaria: {props.Pokemon.mountType}</p>
-      <p>Idade mínima: {minAge}</p>
-    </div>
-  )
-}
-
-type PokeListProps = {
-  Pokemons: Pokemon[]
-}
-
-const PokemonList = (props: PokeListProps) => {
-  return (
-    <div>
-      {props.Pokemons.map(Pokemon => {
-        return <PokeInfo Pokemon={Pokemon} />
-      })}
-    </div>
-  )
-}
+const LauraLapras = new Pokemon(
+  'Laura',
+  ['water', 'ice'],
+  'Lapras',
+  131,
+  'Aquática',
+  0,
+  'bio',
+  true,
+  [],
+  1,
+  200
+)
 
 export const CarroselPage = () => {
-  const LauraLapras = new Pokemon(
-    'Laura',
-    ['water', 'ice'],
-    'Lapras',
-    131,
-    'Aquática',
-    0,
-    'bio',
-    true,
-    [],
-    1,
-    200
-  )
+  const [currentPokemon, setCurrentPokemon] = useState(LauraLapras)
+
   const Pikachu = new Pokemon(
-    'Pikachu',
+    'Johnny',
     ['electric', ''],
-    'Mouse',
+    'Pikachu',
     25,
     'Terrestre',
     0,
@@ -64,9 +36,9 @@ export const CarroselPage = () => {
   )
 
   const Charizard = new Pokemon(
-    'Charizard',
-    ['fire', 'flying'],
     'Flame',
+    ['fire', 'flying'],
+    'Charizard',
     3,
     'Aérea',
     0,
@@ -77,10 +49,96 @@ export const CarroselPage = () => {
     300
   )
 
+  const Charizard2 = new Pokemon(
+    'Flame2',
+    ['fire', 'flying'],
+    'Charizard2',
+    3,
+    'Aérea',
+    0,
+    'bio',
+    true,
+    [],
+    3,
+    300
+  )
+
+  const Charizard3 = new Pokemon(
+    'Flame3',
+    ['fire', 'flying'],
+    'Charizard3',
+    3,
+    'Aérea',
+    0,
+    'bio',
+    true,
+    [],
+    3,
+    300
+  )
+
+  const A_Ninetales = new Pokemon(
+    'Kaguya',
+    ['ice', 'fairy'],
+    'Alolan Ninetales',
+    3,
+    'Aérea',
+    0,
+    'bio',
+    true,
+    [],
+    3,
+    300
+  )
+
+  const A_Ninetales2 = new Pokemon(
+    'Kaguya2',
+    ['ice', 'fairy'],
+    'Alolan Ninetales',
+    3,
+    'Aérea',
+    0,
+    'bio',
+    true,
+    [],
+    3,
+    300
+  )
+
+  const PokemonList0 = [Charizard, Pikachu]
+  const PokemonList1 = [Charizard, Pikachu, LauraLapras]
+
+  const PokemonList2 = [
+    Charizard,
+    Charizard2,
+    Charizard3,
+    LauraLapras,
+    A_Ninetales,
+    Pikachu
+  ]
+
+  const PokemonList3 = [Charizard, Charizard2, Charizard3, LauraLapras]
+
+  const PokemonList4 = [
+    Charizard,
+    Charizard2,
+    Charizard3,
+    LauraLapras,
+    A_Ninetales,
+    Pikachu,
+    A_Ninetales2
+  ]
+
   return (
     <MainContainer
-      Component1={<PokeInfo Pokemon={LauraLapras} />}
-      Component2={<PokemonList Pokemons={[LauraLapras, Pikachu, Charizard]} />}
+      Component1={<></>}
+      Component2={
+        <PokemonCarrosel
+          Pokemons={PokemonList4}
+          setCurrentPokemon={setCurrentPokemon}
+          isRentMode={true}
+        />
+      }
     />
   )
 }

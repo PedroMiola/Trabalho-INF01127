@@ -1,3 +1,5 @@
+/* TODO: atualizar estilo para valores percentuais */
+
 .pokemon-card-container {
   height: 120px;
   width: 500px;
@@ -42,6 +44,7 @@
 #pokemon-card-info-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #pokemon-card-info-list {
@@ -49,16 +52,27 @@
   flex-direction: column;
 }
 
-#pokemon-card-button {
-  font-family: 'EncondeSansExpanded-Bold';
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 40px;
-  background-color: #e2504c;
-  color: black;
+.pokemon-card-buttons-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+#pokemon-card-button-select {
+  font-size: 15px;
+  height: 32px;
+  width: 120px;
+}
+
+#pokemon-card-button-adopt {
+  font-size: 15px;
+  height: 32px;
+  width: 120px;
+}
+
+#pokemon-card-button-bio {
+  font-size: 10px;
+  height: 32px;
+  width: 120px;
 }
 
 .carrosel-container {

@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'EncondeSansExpanded-Regular';
-  src: url('../src/assets/fonts/EncodeSansExpanded-Regular.ttf') format('truetype');
+  src: url('../src/assets/fonts/EncodeSansExpanded-Regular.ttf')
+    format('truetype');
 }
 
 @font-face {
@@ -10,7 +11,14 @@
 
 @font-face {
   font-family: 'EncondeSansExpanded-SemiBold';
-  src: url('../src/assets/fonts/EncodeSansExpanded-SemiBold.ttf') format('truetype');
+  src: url('../src/assets/fonts/EncodeSansExpanded-SemiBold.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-family: 'EncondeSansExpanded-ExtraBold';
+  src: url('../src/assets/fonts/EncodeSansExpanded-ExtraBold.ttf')
+    format('truetype');
 }
 
 .App {
@@ -19,5 +27,3 @@
   width: 100vw;
   font-family: 'EncondeSansExpanded-Regular';
 }
-
-
