@@ -155,12 +155,12 @@ export const CarroselPage = (props: CarroselPageProps) => {
           Button1OnClick={() => props.setPage('Dashboard')}
           Button1Text="Voltar para home"
           Button2OnClick={() => props.setPage('Carrosel')}
-          Button2Text="Login"
+          Button2Text="Faça um aluguel"
           Button3OnClick={() => props.setPage('Dashboard')}
-          Button3Text="Dashboard"
+          Button3Text="Editar cadastro"
           Button4OnClick={() => props.setPage('Login')}
-          Button4Text="Login"
-          Button5OnClick={() => props.setPage('Login')}
+          Button4Text="Seja VIP (TODO)"
+          Button5OnClick={() => props.setPage('Dashboard')}
           Button5Text="Login"
         />
       }
