@@ -1,0 +1,92 @@
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20px */
+    height: 20%;
+    width: 100%;
+    margin-bottom: 1px;
+}
+
+.imgLogo{
+    position: relative;
+    height: 100%;
+}
+
+/*=========================================================================================================================================*/
+
+.mainContainer{
+
+    font-family: 'EncondeSansExpanded-SemiBold';
+    margin: 0px 5% 0px 5%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.formsContainer{
+
+    width: 65%;
+    height: 100%;
+    /* background-color: red; */
+    padding-right: 10%;
+}
+
+.perfilContainer{
+
+    width: 30%;
+    height: 100%;
+    margin-right: 5%;
+    /* background-color: green; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.topContainer{
+
+    font-size: 36px;
+    color: #222852;
+    height: 15%;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+  
+}
+
+.descriptionContainer{
+    text-align: left;
+    width: 100%;
+    height: 5%;
+}
+
+input{
+    position: relative;
+    height: 5%;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #d9d9d9;
+}
+
+.profilePicture{
+
+    height: 30%;
+    width: auto;
+    margin: 20% 10% 50% 10%;
+    border-radius: 90px;
+    border: 5px solid #222852;
+
+}
+
+.buttonStyle{
+    height: 50px;
+    width: 70%;
+    margin-left: 0px;
+    font-size: 24px;
+}
