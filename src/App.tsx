@@ -6,6 +6,7 @@ import { LoginPage } from 'pages/LoginPage'
 import { RegisterPage } from 'pages/RegisterPage'
 import { CarroselPage } from 'pages/CarroselPage'
 import { CreditCardFormPage } from 'pages/CreditCardFormPage'
+import { UserEdit } from 'pages/UserEdit'
 
 export type Logininfo = {
   isLoggedIn: boolean
@@ -13,7 +14,7 @@ export type Logininfo = {
 }
 
 export const App = () => {
-  const [currentPage, setCurrentPage] = useState<string>('NoLogin')
+  const [currentPage, setCurrentPage] = useState<string>('UserEdit')
 
   return (
     <div className="App">
@@ -29,6 +30,8 @@ export const App = () => {
         <CarroselPage setPage={setCurrentPage} />
       ) : currentPage === 'CreditCard' ? (
         <CreditCardFormPage />
+      ) : currentPage === 'UserEdit' ? (
+        <UserEdit setPage={setCurrentPage} />
       ) : (
         <div>Hello</div>
       )}
