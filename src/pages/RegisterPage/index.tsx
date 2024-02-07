@@ -8,53 +8,81 @@ const BirthdayBox = () => {
   const [birthday, setBirthday] = useState('');
 
   const handleBirthdayChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let formattedBirthday = event.target.value;
+    let formattedBirthday = event.target.value.replace(/[^0-9/]/g, ''); // Only allow numbers and '/'
     if (formattedBirthday.length === 2 || formattedBirthday.length === 5) {
       formattedBirthday += '/';
     }
-    setBirthday(formattedBirthday);
+    if (formattedBirthday.length <= 10) {
+      setBirthday(formattedBirthday);
+    }
+  };
+
+  const handleBirthdayKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Backspace' && event.currentTarget.selectionStart && event.currentTarget.value[event.currentTarget.selectionStart - 1] === '/') {
+      event.preventDefault();
+      setBirthday(birthday.slice(0, birthday.length - 2));
+    }
   };
 
   return (
-    <div style={{ marginLeft: '2%', width: '48%' }}>
+    <div className = 'formSidebySide' style={{ marginLeft: '2%', width: '50%' }}>
       <label htmlFor="birthday"></label>
-      <input
+      <input className='inputRegisterPage'
         type="text"
         id="birthday"
-        placeholder="Data de aniversário (dd/mm/yyyy)"
+        placeholder=" Data de nascimento (dd/mm/yyyy)"
         style={{ width: '100%', height: '50px' }}
         pattern="\d{2}\/\d{2}\/\d{4}"
         value={birthday}
         onChange={handleBirthdayChange}
+        onKeyDown={handleBirthdayKeyDown}
+        maxLength={10}
       />
     </div>
   );
 };
 
+
 const CPFBox = () => {
   const [cpf, setCPF] = useState('');
 
   const handleCPFChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let formattedCPF = event.target.value;
+    let formattedCPF = event.target.value.replace(/[^0-9.-]/g, ''); // Only allow numbers, '.' and '-'
     if (formattedCPF.length === 3 || formattedCPF.length === 7) {
       formattedCPF += '.';
     } else if (formattedCPF.length === 11) {
       formattedCPF += '-';
     }
-    setCPF(formattedCPF);
+    if (formattedCPF.length <= 14) {
+      setCPF(formattedCPF);
+    }
   };
 
+  const handleCPFKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (
+      event.key === 'Backspace' &&
+      event.currentTarget.selectionStart &&
+      (event.currentTarget.value[event.currentTarget.selectionStart - 1] === '.' ||
+        event.currentTarget.value[event.currentTarget.selectionStart - 1] === '-')
+    ) {
+      event.preventDefault();
+      setCPF(cpf.slice(0, cpf.length - 2));
+    }
+  };
   return (
-    <div style={{ marginRight: '2%', width: '48%' }}>
+    <div className='formSidebySide' style={{ marginRight: '2%', width: '50%' }}>
       <label htmlFor="CPF"></label>
       <input
+        className='inputRegisterPage'
         type="text"
         id="CPF"
-        placeholder="CPF"
+        placeholder=" CPF"
         style={{ width: '100%', height: '50px' }}
         pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
         value={cpf}
         onChange={handleCPFChange}
+        onKeyDown={handleCPFKeyDown}
+        maxLength={14}
       />
     </div>
   );
@@ -74,24 +102,23 @@ const PasswordBox = () => {
 
   return (
     <>
-      <div style={{ marginRight: '2%', width: '48%' }}>
+      <div className = 'formSidebySide' style={{ marginRight: '2%', width: '50%' }}>
         <label htmlFor="password"></label>
-        <input
+        <input className='inputRegisterPage'
           type="password"
           id="password"
-          placeholder="Senha"
-          // style={{ width: '100%', height: '50px' }}
+          placeholder= " Senha"
           style={{ width: '100%', height: '50px' }}
           value={password}
           onChange={handlePasswordChange}
         />
       </div>
-      <div style={{ marginLeft: '2%', width: '48%' }}>
+      <div className = 'formSidebySide' style={{ marginLeft: '2%', width: '50%' }}>
         <label htmlFor="confirmPassword"></label>
-        <input
+        <input className='inputRegisterPage'
           type="password"
           id="confirmPassword"
-          placeholder="Confirmar senha"
+          placeholder=" Confirmar senha"
           style={{ width: '100%', height: '50px' }}
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
@@ -101,63 +128,24 @@ const PasswordBox = () => {
   );
 };
 
-// const RegisterText = () => {
-//   return (
-//     <div>
-//       <div
-//         className="register-header"
-//         id="Register-header"
-//         style={{
-//           marginTop: '50px',
-//           display: 'flex',
-//           justifyContent: 'center',
-//           alignItems: 'center'
-//         }}
-//       >
-//         Cadastre-se
-//       </div>
-
-//       <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
-//         <label htmlFor="name"></label>
-//         <input type="text" id="name" placeholder="Nome completo" style={{ width: '80%', height: '50px' }} />
-//       </div>
-
-//       <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
-//         <CPFBox />
-//         <BirthdayBox />
-//       </div>
-
-//       <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
-//         <label htmlFor="email"></label>
-//         <input type="email" id="email" placeholder="E-mail" style={{ width: '80%', height: '50px' }} />
-//       </div>
-
-//       <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
-//         <PasswordBox />
-//       </div>
-      
-//     </div>
-//   )
-// }
-
 const RegisterText = () => {
 
   return(
     <>
       <div className='mainContainer'>
         <div className='topContainer'>
-          Cadastro
+          Cadastre-se
         </div>
         <div className='formContainer'>
           <div className='formLine'>
-            <input type="text" id="name" placeholder="Nome completo" style={{ width: '100%', height: '50px' }} />
+            <input className='inputRegisterPage' type="text" id="name" placeholder=" Nome completo" style={{ width: '100%', height: '50px' }} />
           </div>
           <div className='formLine'>
             <CPFBox />
             <BirthdayBox />
           </div>
           <div className='formLine'>
-            <input type="email" id="email" placeholder="E-mail" style={{ width: '100%', height: '50px' }} />
+            <input className = 'inputRegisterPage' type="email" id="email" placeholder=" E-mail" style={{ width: '100%', height: '50px' }} />
           </div>
           <div className='formLine'>
             <PasswordBox />

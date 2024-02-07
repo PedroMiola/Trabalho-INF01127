@@ -23,7 +23,7 @@
   height: 15%;
   width: 100%;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
 }
 
@@ -39,19 +39,33 @@
 }
 
 .formLine{
-
+  
   display: flex;
-  margin-bottom: 15px;
-
+  margin-bottom: 30px;
+  
 }
 
-.buttonStyle{
+.inputRegisterPage {
+  font-size: 30px;
+  height: 54px;
+  width: 80%;
+  background-color: #d9d9d9;
+}
 
-  width: 20%;
-  height: 50px;
-  display: flex; 
+.formSidebySide{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.buttonStyle{
+  width: 30%;
+  height: 70px;
   align-items: center;
   justify-content: center;
-  margin-left: 40%;
-  margin-top: 40px;
+  margin-top: 140px;
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
