@@ -29,12 +29,21 @@
   flex-direction: row;
 }
 #pokemon-display-png {
+  width: 100%;
+  height: 100%;
+}
+#vip-red-text {
+  color: #e2504c;
+}
+#pokemon-display-png-container {
+  margin: auto 10px auto 0px;
   width: 140px;
   height: 140px;
   border-style: solid;
   border-radius: 15px;
   border-color: black;
   border-width: 2px;
+  padding-right: 10px;
 }
 #pokemon-display-content-container {
   display: flex;
@@ -45,12 +54,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 #pokemon-display-rent-price {
   background-color: #d9d9d9;
   font-size: 16px;
   border-radius: 10px;
   font-family: 'EncondeSansExpanded-SemiBold';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 130px;
+  padding: 0 20px 0 20px;
 }
 #pokemon-display-content-2 {
   background-color: #d9d9d9;
@@ -62,6 +77,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 50px;
+  margin-bottom: 10px;
 }
 #pokemon-display-footer {
   display: flex;
@@ -70,25 +87,54 @@
   height: 40px;
 }
 #pokemon-display-credit-card {
+  font-family: 'EncondeSansExpanded-SemiBold';
   background-color: #d9d9d9;
   width: 100%;
   margin-right: 6px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
 }
 #pokemon-display-money-card {
+  font-family: 'EncondeSansExpanded-SemiBold';
   background-color: #d9d9d9;
   width: 100%;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 20px;
 }
-.pokemon-display-rent-duration {
+.pokemon-display-rent-duration-container {
+  font-family: 'EncondeSansExpanded-SemiBold';
   background-color: #d9d9d9;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 50%;
 }
 #pokemon-desplay-rent-duration-label {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#pokemon-desplay-rent-duration-input {
+  font-family: 'EncondeSansExpanded-SemiBold';
+  background-color: #727376;
+  width: 20%;
+  border-radius: 20px;
+  font-size: 15px;
+  margin-left: 5px;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .pokemon-display-footer-button {
+  width: 20%;
 }

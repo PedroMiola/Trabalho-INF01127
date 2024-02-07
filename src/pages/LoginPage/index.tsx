@@ -1,15 +1,20 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useState } from 'react'
 import { MainContainer } from 'components/MainContainer'
 import { Button } from 'components/Button'
+import { Server } from 'classes/server'
+import { LogoA } from 'components/Logo'
 import './LoginPage.css'
-
+import { User } from 'classes/users/clients/user'
 type AwakenTrainerTextsProps = {
   setPage: Dispatch<SetStateAction<string>>
 }
 
 const AwakenTrainerTexts = ({ setPage }: AwakenTrainerTextsProps) => {
   return (
-    <div>
+    <div id="trainer-awaits-container">
+      <div id="logo-hello-container">
+        <LogoA />
+      </div>
       <div className="text1" id="header-text">
         Desperte o treinador que há em você!
       </div>
@@ -24,33 +29,84 @@ const AwakenTrainerTexts = ({ setPage }: AwakenTrainerTextsProps) => {
         instantânea.
       </div>
       <div id="button-register">
-        <Button onClick={() => setPage('Register')} ButtonText="Cadastrar" />
+        <Button
+          submit={false}
+          onClick={() => setPage('Register')}
+          ButtonText="Cadastrar"
+        />
       </div>
     </div>
   )
 }
 
-const LoginContainer = () => {
+type LoginContainerProps = {
+  setPage: Dispatch<SetStateAction<string>>
+  setUser: Dispatch<SetStateAction<User | undefined>>
+  server: Server
+}
+
+const LoginContainer = (props: LoginContainerProps) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const onSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault()
+    // Access the email and password from formData
+    const { email, password } = formData
+    const approve = props.server.approveLogin(email, password)
+    if (approve) {
+      console.log('login aprovado')
+      props.setUser(props.server.users.getUser(email))
+      props.setPage('Dashboard')
+    } else {
+      alert('Usuário ou senha inválidos')
+    }
+    // You can perform further actions, such as sending the data to a server for authentication
+  }
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+  }
+
   return (
     <div>
       <div className="text2" id="form-header-text">
         Login
       </div>
-      <form>
+      <form onSubmit={onSubmit}>
         <label className="label" htmlFor="email">
           E-mail:
         </label>
         <br />
-        <input className="input" type="text" name="email" />
+        <input
+          className="input"
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
         <br />
         <label className="label" htmlFor="password">
           Password:
         </label>
         <br />
-        <input className="input" type="text" id="text" name="password" />
+        <input
+          className="input"
+          type="password" // Change to 'password' for password input
+          name="password"
+          value={formData.password}
+          onChange={handleInputChange}
+        />
         <div id="button-login">
           <Button
-            onClick={() => console.log('login feito')}
+            submit={true}
+            onClick={() => console.log('oioi')}
             ButtonText="Login"
           />
         </div>
@@ -61,13 +117,21 @@ const LoginContainer = () => {
 
 type LoginPageProps = {
   setPage: Dispatch<SetStateAction<string>>
+  server: Server
+  setUser: Dispatch<SetStateAction<User | undefined>>
 }
 
 export const LoginPage = (props: LoginPageProps) => {
   return (
     <MainContainer
       Component1={<AwakenTrainerTexts setPage={props.setPage} />}
-      Component2={<LoginContainer />}
+      Component2={
+        <LoginContainer
+          setUser={props.setUser}
+          server={props.server}
+          setPage={props.setPage}
+        />
+      }
     />
   )
 }

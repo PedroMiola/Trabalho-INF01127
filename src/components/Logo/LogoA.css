@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 20px */
+  height: 100%;
+  width: 100%;
+  margin-bottom: 1px;
+}
+
+.imgLogo {
+  position: relative;
+  height: 100%;
+}

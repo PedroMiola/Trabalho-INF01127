@@ -1,10 +1,24 @@
 import { RegisterContainer } from 'components/RegisterContainer'
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import AlokamonA from '../../assets/images/alokamon_A.png'
 import './CreditCardFormPage.css'
 import { Button } from 'components/Button'
+import { User } from 'classes/users/clients/user'
+import { Pokemon } from 'classes/pokemon/pokemon'
 
-const CreditCardForm = () => {
+type CreditCardFormPageProps = {
+  pokemonToRent: Pokemon
+  user: User | undefined
+  setPage: Dispatch<SetStateAction<string>>
+}
+
+type CreditCardFormProps = {
+  currentPokemon: Pokemon
+  user: User | undefined
+  setPage: Dispatch<SetStateAction<string>>
+}
+
+const CreditCardForm = (props: CreditCardFormProps) => {
   return (
     <div>
       <div
@@ -47,11 +61,24 @@ const CreditCardForm = () => {
             className="credit-card-form-input"
             type="number"
             id="credit-card-form-security-number"
-            placeholder="Cóodigo de segurança"
+            placeholder="Código de segurança"
           />
         </div>
         <div id="credit-card-form-verify-button">
-          <Button ButtonText="Verificar" onClick={() => console.log('oi')} />
+          <Button
+            submit={false}
+            ButtonText="Verificar"
+            onClick={() => {
+              props.user?.rentPokemon(
+                props.currentPokemon,
+                5,
+                props.currentPokemon.mountType
+              )
+              console.log(props.currentPokemon)
+              alert('Pokemon Alugado!!')
+              props.setPage('Dashboard')
+            }}
+          />
         </div>
       </form>
     </div>
@@ -73,11 +100,18 @@ const AlokaLogo = () => {
   )
 }
 
-export const CreditCardFormPage = () => {
+export const CreditCardFormPage = (props: CreditCardFormPageProps) => {
+  if (!props.user) return
   return (
     <RegisterContainer
       Component1={<AlokaLogo />}
-      Component2={<CreditCardForm />}
+      Component2={
+        <CreditCardForm
+          user={props.user}
+          currentPokemon={props.pokemonToRent}
+          setPage={props.setPage}
+        />
+      }
     />
   )
 }

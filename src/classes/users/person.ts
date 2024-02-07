@@ -1,73 +1,68 @@
 export abstract class Person {
-    private cpf: number;
-    private email: string;
-    private password: string;
-    private name: string;
-    private age: number;
+  private cpf: number
+  private email: string
+  private password: string
+  private name: string
+  private age: number
 
-    constructor(name: string, age: number, cpf: number, email: string, password: string) {
-        this.name = name;
-        this.age = age;
-        this.cpf = cpf;
-        this.email = email;
-        this.password = password;
-    }
+  constructor(
+    name: string,
+    age: number,
+    cpf: number,
+    email: string,
+    password: string
+  ) {
+    this.name = name
+    this.age = age
+    this.cpf = cpf
+    this.email = email
+    this.password = password
+  }
 
-    getName(): string {
-        return this.name;
-    }
+  getName(): string {
+    return this.name
+  }
 
-    getAge(): number {
-        return this.age;
-    }
-    
-    getCpf(): number {
-        return this.cpf;
-    }
+  getAge(): number {
+    return this.age
+  }
 
-    getEmail(): string {
-        return this.email;
-    }
+  getCpf(): number {
+    return this.cpf
+  }
 
-    getPassword(): string {
-        return this.password;
-    }
+  getEmail(): string {
+    return this.email
+  }
 
-    setName(name: string): void {
-        this.name = name;
-    }
+  getPassword(): string {
+    return this.password
+  }
 
-    setAge(age: number): void {
-        this.age = age;
-    }
+  setName(name: string): void {
+    this.name = name
+  }
 
-    setCpf(cpf: number) {
-        this.cpf = cpf;
-    }
+  setAge(age: number): void {
+    this.age = age
+  }
 
-    approveLoginEmail(email: string, password: string): boolean {
-        if (email === this.email && password === this.password) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+  setCpf(cpf: number) {
+    this.cpf = cpf
+  }
 
-    approveLoginCpf(cpf: number, password: string): boolean {
-        if (cpf === this.cpf && password === this.password) {
-            return true;
-        } else {
-            return false;
-        }
+  approveLogin(password: string): boolean {
+    if (password === this.password) {
+      return true
+    } else {
+      return false
     }
+  }
 
-    changePassword(oldPassword: string, newPassword: string): boolean {
-        if(oldPassword === this.password){
-            this.password = newPassword;
-            return true;
-        }
-        else
-            return false;
-    }
+  changePassword(oldPassword: string, newPassword: string): boolean {
+    if (oldPassword === this.password) {
+      this.password = newPassword
+      return true
+    } else return false
+  }
 }
-
