@@ -1,11 +1,11 @@
 import './App.css'
 import React, { useState } from 'react'
 import { NoLoginPage } from 'pages/NoLoginPage'
-import { UserPage } from 'pages/UserPage'
 import { LoginPage } from 'pages/LoginPage'
 import { RegisterPage } from 'pages/RegisterPage'
 import { CarroselPage } from 'pages/CarroselPage'
 import { CreditCardFormPage } from 'pages/CreditCardFormPage'
+import { DashboardPage } from 'pages/DashboardPage'
 
 export type Logininfo = {
   isLoggedIn: boolean
@@ -23,8 +23,8 @@ export const App = () => {
         <RegisterPage />
       ) : currentPage === 'Login' ? (
         <LoginPage setPage={setCurrentPage} />
-      ) : currentPage === 'User' ? (
-        <UserPage />
+      ) : currentPage === 'Dashboard' ? (
+        <DashboardPage setPage={setCurrentPage} />
       ) : currentPage === 'Carrosel' ? (
         <CarroselPage setPage={setCurrentPage} />
       ) : currentPage === 'CreditCard' ? (

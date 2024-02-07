@@ -10,7 +10,6 @@ import './CarroselPage.css'
 const LauraLapras = new Pokemon(
   'Laura',
   ['water', 'ice'],
-  'Lapras',
   131,
   'Aquática',
   0,
@@ -32,8 +31,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
 
   const Pikachu = new Pokemon(
     'Johnny',
-    ['electric', ''],
-    'Pikachu',
+    ['electric', 'eletric'],
     25,
     'Terrestre',
     0,
@@ -47,8 +45,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
   const Charizard = new Pokemon(
     'Flame',
     ['fire', 'flying'],
-    'Charizard',
-    3,
+    6,
     'Aérea',
     0,
     'bio',
@@ -61,8 +58,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
   const Charizard2 = new Pokemon(
     'Flame2',
     ['fire', 'flying'],
-    'Charizard2',
-    3,
+    6,
     'Aérea',
     0,
     'bio',
@@ -75,8 +71,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
   const Charizard3 = new Pokemon(
     'Flame3',
     ['fire', 'flying'],
-    'Charizard3',
-    3,
+    6,
     'Aérea',
     0,
     'bio',
@@ -89,8 +84,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
   const A_Ninetales = new Pokemon(
     'Kaguya',
     ['ice', 'fairy'],
-    'Alolan Ninetales',
-    3,
+    253,
     'Aérea',
     0,
     'bio',
@@ -103,8 +97,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
   const A_Ninetales2 = new Pokemon(
     'Kaguya2',
     ['ice', 'fairy'],
-    'Alolan Ninetales',
-    3,
+    457,
     'Aérea',
     0,
     'bio',
@@ -146,8 +139,8 @@ export const CarroselPage = (props: CarroselPageProps) => {
           Button1Text="Carrosel"
           Button2OnClick={() => props.setPage('Login')}
           Button2Text="Login"
-          Button3OnClick={() => props.setPage('Login')}
-          Button3Text="Login"
+          Button3OnClick={() => props.setPage('Dashboard')}
+          Button3Text="Dashboard"
           Button4OnClick={() => props.setPage('Login')}
           Button4Text="Login"
           Button5OnClick={() => props.setPage('Login')}

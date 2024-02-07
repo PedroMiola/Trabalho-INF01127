@@ -9,20 +9,24 @@ type PokeCardProps = {
 }
 
 const PokemonCardRent = (props: PokeCardProps) => {
-  const fullName = `${props.Pokemon.name}, ${props.Pokemon.species}`
+  const fullName = `${props.Pokemon.name}, ${props.Pokemon.getSpecies()}`
   const minAge = props.Pokemon.getMinAge()
+  const imagePath = props.Pokemon.getImage()
+  const typeImgArrayPath = props.Pokemon.getTypeImage()
 
   return (
     <div className="pokemon-card-container">
-      <div id="pokemon-card-png">imagem</div>
+      <div id="pokemon-card-png">
+        <img src={imagePath} />
+      </div>
       <div id="pokemon-card-content">
         <h1 id="pokemon-card-header">{fullName}</h1>
         <div id="pokemon-card-divbar" />
         <div id="pokemon-card-info-container">
           <div id="pokemon-card-info-list">
-            <p className="pokemon-card-info-text">
-              Type: {props.Pokemon.type.join(', ')}
-            </p>
+            <div id="pokemon-types-image-row">
+              <img src={typeImgArrayPath[0]} alt="" />
+            </div>
             <p className="pokemon-card-info-text">
               Montaria: {props.Pokemon.mountType}
             </p>
@@ -38,7 +42,12 @@ const PokemonCardRent = (props: PokeCardProps) => {
             <div id="pokemon-card-button-bio">
               <Button
                 ButtonText="Mais sobre a espécie"
-                onClick={() => console.log(props.Pokemon.biography)}
+                onClick={() => {
+                  console.log(props.Pokemon.biography)
+                  console.log(props.Pokemon.getSpecies())
+                  console.log(props.Pokemon.getImage())
+                  console.log(imagePath)
+                }}
               />
             </div>
           </div>
@@ -49,7 +58,7 @@ const PokemonCardRent = (props: PokeCardProps) => {
 }
 
 const PokemonCardAdoption = (props: PokeCardProps) => {
-  const fullName = `${props.Pokemon.name}, ${props.Pokemon.species}`
+  const fullName = `${props.Pokemon.name}, ${props.Pokemon.getSpecies()}`
 
   return (
     <div className="pokemon-card-container">
@@ -73,7 +82,9 @@ const PokemonCardAdoption = (props: PokeCardProps) => {
             <div id="pokemon-card-button-bio">
               <Button
                 ButtonText="Mais sobre a espécie"
-                onClick={() => console.log(props.Pokemon.biography)}
+                onClick={() => {
+                  console.log(props.Pokemon.biography)
+                }}
               />
             </div>
           </div>
