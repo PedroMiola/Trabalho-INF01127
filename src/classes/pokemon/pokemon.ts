@@ -1,7 +1,9 @@
+import { speciesNames } from "dictionaries/species"
+import { Rent } from "./renting/rent"
+
 export class Pokemon {
   name: string
   type: [string, string]
-  species: string
   pokeIndex: number
   mountType: string
   minAge: number
@@ -27,7 +29,6 @@ export class Pokemon {
   ) {
     this.name = name
     this.type = type
-    this.species = species
     this.pokeIndex = pokeIndex
     this.mountType = mountType
     this.minAge = minAge
@@ -68,5 +69,9 @@ export class Pokemon {
     } else {
       return 10
     }
+  }
+
+  getSpecies(): string {
+    return speciesNames[this.pokeIndex]
   }
 }

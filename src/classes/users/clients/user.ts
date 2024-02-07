@@ -1,4 +1,8 @@
-class User extends Person{
+import { Person } from '../person';
+import { Pokemon } from 'classes/pokemon/pokemon';
+import { Rent } from 'classes/pokemon/renting/rent';
+import { Payment } from 'classes/pokemon/renting/payment';
+export class User extends Person{
     private currentlyRentedPokemons: Rent[] = [];
     private debt: number = 0;
     private historyRentedPokemons: Rent[] = [];

@@ -1,4 +1,4 @@
-abstract class Person {
+export abstract class Person {
     private cpf: number;
     private email: string;
     private password: string;

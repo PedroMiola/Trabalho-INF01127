@@ -1,4 +1,5 @@
-class HashEmployees {
+import { Employee } from './employee';
+export class HashEmployees {
     private employees: { [email: string]: Employee };
 
     constructor() {

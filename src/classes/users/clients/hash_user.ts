@@ -1,4 +1,6 @@
-class HashUsers {
+import { User } from './user';
+
+export class HashUsers {
     private users: { [email: string]: User };
 
     constructor() {

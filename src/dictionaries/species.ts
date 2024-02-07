@@ -1,4 +1,4 @@
-const speciesNames: { [key: number]: string } = {
+export const speciesNames: { [key: number]: string } = {
     1: 'Bulbasaur',
     2: 'Ivysaur',
     3: 'Venusaur',

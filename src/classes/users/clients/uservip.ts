@@ -1,4 +1,6 @@
-class UserVIP extends User {
+import { User } from './user';
+import { Adoption } from 'classes/pokemon/adoption';
+export class UserVIP extends User {
     private adopetdPoke: Adoption[] = [];
 
     constructor(name: string, age: number, cpf: number, email: string, password: string) {

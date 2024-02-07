@@ -1,4 +1,8 @@
-class Manager extends Employee{
+import { Employee } from './employee';
+import { User } from '../clients/user';
+import { UserVIP } from '../clients/uservip';
+
+export class Manager extends Employee{
 
 
     constructor(name: string, age: number, cpf: number, email: string, password: string, paymentVal: number) {

@@ -1,4 +1,12 @@
-class Server{
+import { Employee } from "./users/employees/employee";
+import { HashEmployees } from "./users/employees/hash_employees";
+import { User } from "./users/clients/user";
+import { HashUsers } from "./users/clients/hash_user";
+import { Pokemon } from "./pokemon/pokemon";
+import { HashPokes } from "./pokemon/hash_poke";
+import { Manager } from "./users/employees/manager";
+import { UserVIP } from "./users/clients/uservip";
+export class Server{
     private employees: HashEmployees;
     private users: HashUsers;
     private pokemons: HashPokes;
