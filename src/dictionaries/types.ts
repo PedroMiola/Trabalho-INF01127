@@ -1,4 +1,4 @@
-const validPokemonTypes: { [key: string]: boolean } = {
+export const validPokemonTypes: { [key: string]: boolean } = {
     normal: true,
     fire: true,
     water: true,
@@ -16,5 +16,6 @@ const validPokemonTypes: { [key: string]: boolean } = {
     dragon: true,
     dark: true,
     steel: true,
-    fairy: true
+    fairy: true,
+    null: true
 };

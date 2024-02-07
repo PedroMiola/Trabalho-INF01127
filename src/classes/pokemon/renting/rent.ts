@@ -1,4 +1,8 @@
-class Rent{
+import { Pokemon } from '../pokemon';
+import { User } from 'classes/users/clients/user';
+import { Payment } from './payment';
+
+export class Rent{
     private pokemon: Pokemon;
     private user: User;
     private startDate: Date;

@@ -1,4 +1,4 @@
-class Payment {
+export class Payment {
     valueToPay: number;
     discount: number;
 

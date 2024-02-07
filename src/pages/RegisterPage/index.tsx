@@ -2,6 +2,7 @@ import { RegisterContainer } from 'components/RegisterContainer'
 import AlokamonA from '../../assets/images/alokamon_A.png'
 import './RegisterPage.css'
 import React, { useState } from 'react';
+import { Button } from 'components/Button';
 
 const BirthdayBox = () => {
   const [birthday, setBirthday] = useState('');
@@ -15,7 +16,7 @@ const BirthdayBox = () => {
   };
 
   return (
-    <div style={{ marginLeft: '10px', width: '50%' }}>
+    <div style={{ marginLeft: '2%', width: '48%' }}>
       <label htmlFor="birthday"></label>
       <input
         type="text"
@@ -44,7 +45,7 @@ const CPFBox = () => {
   };
 
   return (
-    <div style={{ marginRight: '10px', width: '50%' }}>
+    <div style={{ marginRight: '2%', width: '48%' }}>
       <label htmlFor="CPF"></label>
       <input
         type="text"
@@ -73,18 +74,19 @@ const PasswordBox = () => {
 
   return (
     <>
-      <div style={{ marginRight: '10px', width: '50%' }}>
+      <div style={{ marginRight: '2%', width: '48%' }}>
         <label htmlFor="password"></label>
         <input
           type="password"
           id="password"
           placeholder="Senha"
+          // style={{ width: '100%', height: '50px' }}
           style={{ width: '100%', height: '50px' }}
           value={password}
           onChange={handlePasswordChange}
         />
       </div>
-      <div style={{ marginLeft: '10px', width: '50%' }}>
+      <div style={{ marginLeft: '2%', width: '48%' }}>
         <label htmlFor="confirmPassword"></label>
         <input
           type="password"
@@ -99,42 +101,75 @@ const PasswordBox = () => {
   );
 };
 
-const RegisterText = () => {
-  return (
-    <div>
-      <div
-        className="register-header"
-        id="Register-header"
-        style={{
-          marginTop: '50px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        Cadastre-se
-      </div>
+// const RegisterText = () => {
+//   return (
+//     <div>
+//       <div
+//         className="register-header"
+//         id="Register-header"
+//         style={{
+//           marginTop: '50px',
+//           display: 'flex',
+//           justifyContent: 'center',
+//           alignItems: 'center'
+//         }}
+//       >
+//         Cadastre-se
+//       </div>
 
-      <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
-        <label htmlFor="name"></label>
-        <input type="text" id="name" placeholder="Nome completo" style={{ width: '80%', height: '50px' }} />
-      </div>
+//       <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
+//         <label htmlFor="name"></label>
+//         <input type="text" id="name" placeholder="Nome completo" style={{ width: '80%', height: '50px' }} />
+//       </div>
 
-      <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
-        <CPFBox />
-        <BirthdayBox />
-      </div>
+//       <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+//         <CPFBox />
+//         <BirthdayBox />
+//       </div>
 
-      <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
-        <label htmlFor="email"></label>
-        <input type="email" id="email" placeholder="E-mail" style={{ width: '80%', height: '50px' }} />
-      </div>
+//       <div style={{ marginTop: '20px', width: '100%', height: '100%' }}>
+//         <label htmlFor="email"></label>
+//         <input type="email" id="email" placeholder="E-mail" style={{ width: '80%', height: '50px' }} />
+//       </div>
 
-      <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
-        <PasswordBox />
-      </div>
+//       <div style={{ marginTop: '20px', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+//         <PasswordBox />
+//       </div>
       
-    </div>
+//     </div>
+//   )
+// }
+
+const RegisterText = () => {
+
+  return(
+    <>
+      <div className='mainContainer'>
+        <div className='topContainer'>
+          Cadastro
+        </div>
+        <div className='formContainer'>
+          <div className='formLine'>
+            <input type="text" id="name" placeholder="Nome completo" style={{ width: '100%', height: '50px' }} />
+          </div>
+          <div className='formLine'>
+            <CPFBox />
+            <BirthdayBox />
+          </div>
+          <div className='formLine'>
+            <input type="email" id="email" placeholder="E-mail" style={{ width: '100%', height: '50px' }} />
+          </div>
+          <div className='formLine'>
+            <PasswordBox />
+          </div>
+        </div>
+        <div className='buttonStyle'>
+          <Button
+            onClick={() => console.log("Cadastro realizado")}
+            ButtonText='Cadastrar'/>
+        </div>
+      </div>
+    </>
   )
 }
 
