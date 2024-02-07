@@ -1,0 +1,86 @@
+.logo{
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-bottom: -15%;
+}
+
+.imgLogo{
+    width: auto;
+    height: 100%;
+}
+
+/* ==================================================================================================================================== */
+
+.lineContainer{
+    font-family: 'EncondeSansExpanded-SemiBold';
+    color: white;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    height:30%;
+    margin: 0px 7% 3% 7%;
+}
+
+.imgLine{
+    position: relative;
+    margin-top: 10%;
+    width: 33%;
+    height: auto;
+}
+
+.textLine{
+    position: relative;
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 67%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* ==================================================================================================================================== */
+
+.feedbackContainer{
+    font-family: 'EncondeSansExpanded-SemiBold';
+    color: black;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    height:33%;
+    margin: 0px 15% 3% 15%;
+}
+
+.imgFeedback{
+    position: relative;
+    margin-top: 5%;
+    width: auto;
+    height: 100%;
+}
+
+.textFeedback{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+/* ==================================================================================================================================== */
+
+.buttonContainer{
+    height: 15%;
+    display: flex;
+    width: 80%;
+    margin: 65px 10% 20px 10%;
+    font-size: 22px;
+}
+
+.espaco{
+    width: 20%;
+}

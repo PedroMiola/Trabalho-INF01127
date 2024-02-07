@@ -1,11 +1,70 @@
 import React, { SetStateAction, Dispatch } from 'react'
-import { ButtonGroup } from 'components/ButtonGroup'
 import './NoLoginPage.css'
+import logo from './../../assets/images/alokamon_logo.png'
+import messi from './../../assets/images/messi_careca.jpg'
+import { Button } from 'components/Button'
 
 import { MainContainer } from 'components/MainContainer'
 
 type NoLoginPageProps = {
   setPage: Dispatch<SetStateAction<string>>
+}
+
+const ContainerAzul = () => {
+
+  return(
+    <>
+      <div className='lineContainer'>
+        <img className='imgLine' src={messi}/>
+        <div className='textLine'>
+          Voe com a gente!
+        </div> 
+      </div>
+      <div className='lineContainer'>
+        <img className='imgLine' src={messi}/>
+        <div className='textLine'>
+          Navegue com a gente!
+        </div> 
+      </div>
+      <div className='lineContainer'>
+        <img className='imgLine' src={messi}/>
+        <div className='textLine'>
+          Ande com a gente!
+        </div> 
+      </div>
+    </>
+  )
+}
+
+const ContainerBranco = ( { setPage }: NoLoginPageProps ) => {
+
+  return(
+    <>
+      <div className='feedbackContainer'>
+        <img className='imgFeedback' src={messi}/>
+        <div className='textFeedback'>
+        “Gostei muito” <br/> - Price <br/>
+        ⭐⭐⭐⭐⭐
+        </div> 
+      </div>
+      <div className='feedbackContainer'>
+        <img className='imgFeedback' src={messi}/>
+        <div className='textFeedback'>
+          "Recomendo!" <br /> - Clair <br/>
+          ⭐⭐⭐⭐⭐
+        </div> 
+      </div>
+      <div className='buttonContainer'>
+          <Button
+            ButtonText='Acesse o catálogo'
+            onClick={() => console.log("Vai pro catálogo")}/>
+          <div className='espaco'></div>
+          <Button
+              onClick={() => setPage('Login')}
+              ButtonText='Faça login / cadastre-se'/>
+      </div>
+    </>
+  )
 }
 
 export const NoLoginPage = (props: NoLoginPageProps) => {
@@ -15,27 +74,16 @@ export const NoLoginPage = (props: NoLoginPageProps) => {
 
   return (
     <>
+      <div className='logo'>
+        <img className='imgLogo' src={logo}/>
+      </div>
       <MainContainer
         Component1={
-          <ButtonGroup
-            Button1OnClick={() => props.setPage('Carrosel')}
-            Button1Text="Carrosel"
-            Button2OnClick={() => props.setPage('Login')}
-            Button2Text="Login"
-            Button3OnClick={() => props.setPage('Login')}
-            Button3Text="Login"
-            Button4OnClick={() => props.setPage('Login')}
-            Button4Text="Login"
-            Button5OnClick={() => props.setPage('Login')}
-            Button5Text="Login"
-          />
+          <ContainerAzul/>
         }
         Component2={
-          <div>
-            <GoToLoginPageButton />
-          </div>
-        }
-      />
+          <ContainerBranco setPage={props.setPage}/>
+        }/>
     </>
   )
 }
