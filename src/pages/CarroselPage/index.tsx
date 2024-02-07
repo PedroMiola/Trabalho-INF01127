@@ -4,8 +4,9 @@ import { Pokemon } from 'classes/pokemon/pokemon'
 import { PokemonCarrosel } from 'components/Carrosel'
 import { PokemonDisplayComponent } from 'components/PokemonDisplay'
 import { ButtonGroup } from 'components/ButtonGroup'
-
 import './CarroselPage.css'
+import { Server } from 'classes/server'
+import { User } from 'classes/users/clients/user'
 
 const LauraLapras = new Pokemon(
   'Laura',
@@ -19,8 +20,12 @@ const LauraLapras = new Pokemon(
 )
 
 type CarroselPageProps = {
+  setRentPokemon: Dispatch<SetStateAction<Pokemon>>
   setPage: Dispatch<SetStateAction<string>>
+  setRentDays: Dispatch<SetStateAction<number>>
   carroselMode: number
+  server: Server
+  user: User | undefined
 }
 
 export const CarroselPage = (props: CarroselPageProps) => {
@@ -132,7 +137,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
         <div id="carrosel-component-container">
           {!currentPokemon ? (
             <PokemonCarrosel
-              Pokemons={PokemonList4}
+              Pokemons={props.server.listPokemons()}
               setCurrentPokemon={setCurrentPokemon}
               isCarroselMode={props.carroselMode}
             />
@@ -140,7 +145,13 @@ export const CarroselPage = (props: CarroselPageProps) => {
             <PokemonDisplayComponent
               Poke={currentPokemon}
               onClose={() => setCurrentPokemon(undefined)}
-              onSelect={() => props.setPage('CreditCard')}
+              setRentDays={props.setRentDays}
+              onSelect={() => {
+                if (props.user) {
+                  props.setRentPokemon(currentPokemon)
+                  props.setPage('CreditCard')
+                } else alert('Necessário login')
+              }}
             />
           )}
         </div>
@@ -152,15 +163,21 @@ export const CarroselPage = (props: CarroselPageProps) => {
     <MainContainer
       Component1={
         <ButtonGroup
-          Button1OnClick={() => props.setPage('Dashboard')}
-          Button1Text="Voltar para home"
-          Button2OnClick={() => props.setPage('Carrosel')}
-          Button2Text="Faça um aluguel"
-          Button3OnClick={() => props.setPage('Dashboard')}
-          Button3Text="Editar cadastro"
-          Button4OnClick={() => props.setPage('Login')}
-          Button4Text="Seja VIP (TODO)"
-          Button5OnClick={() => props.setPage('Dashboard')}
+          Button1OnClick={() => props.setPage('Carrosel')}
+          Button1Text="Carrosel"
+          Button2OnClick={() => props.setPage('NoLogin')}
+          Button2Text="Home"
+          Button3OnClick={() => {
+            if (props.user) {
+              props.setPage('Dashboard')
+            } else {
+              alert('Necessário fazer Login')
+            }
+          }}
+          Button3Text="Dashboard"
+          Button4OnClick={() => props.setPage('CreditCard')}
+          Button4Text="CreditCard"
+          Button5OnClick={() => props.setPage('Login')}
           Button5Text="Login"
         />
       }

@@ -1,29 +1,29 @@
 import { Pokemon } from './pokemon'
 
 export class HashPokes {
-  private pokemons: { [id: number]: Pokemon }
+  private pokemons: { [name: string]: Pokemon }
 
   constructor() {
     this.pokemons = {}
   }
 
   addPokemon(pokemon: Pokemon) {
-    this.pokemons[pokemon.getId()] = pokemon
+    this.pokemons[pokemon.getName()] = pokemon
   }
 
-  getPokemon(id: number): Pokemon | undefined {
-    return this.pokemons[id]
+  getPokemon(name: string): Pokemon | undefined {
+    return this.pokemons[name]
   }
 
-  removePokemon(id: number) {
-    delete this.pokemons[id]
+  removePokemon(name: string) {
+    delete this.pokemons[name]
   }
 
   listPokemons(): Pokemon[] {
     return Object.values(this.pokemons)
   }
 
-  load_pokemonList(): void {
+  loadPokemonList(): void {
     //name, type, pokeIndex, mount, bio, isFree, --historyRented--, id, priceperday
     let p1 = new Pokemon(
       'Flamejante',

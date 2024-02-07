@@ -8,10 +8,10 @@ import { Manager } from './users/employees/manager'
 import { UserVIP } from './users/clients/uservip'
 
 export class Server {
-  private employees: HashEmployees
-  private users: HashUsers
-  private pokemons: HashPokes
-  private manager: Manager
+  employees: HashEmployees
+  users: HashUsers
+  pokemons: HashPokes
+  manager: Manager
 
   constructor() {
     this.employees = new HashEmployees()
@@ -27,15 +27,15 @@ export class Server {
     )
   }
 
-  listPokemons(): Array<Pokemon> {
+  listPokemons(): Pokemon[] {
     return this.pokemons.listPokemons()
   }
 
-  listClients(): Array<User> {
+  listClients(): User[] {
     return this.users.listUsers()
   }
 
-  listEmployees(): Array<Employee> {
+  listEmployees(): Employee[] {
     return this.employees.listEmployees()
   }
 
@@ -51,8 +51,8 @@ export class Server {
     this.pokemons.addPokemon(pokemon)
   }
 
-  removePokemon(id: number): void {
-    this.pokemons.removePokemon(id)
+  removePokemon(name: string): void {
+    this.pokemons.removePokemon(name)
   }
 
   removeClient(email: string): void {
@@ -81,5 +81,33 @@ export class Server {
     let userNormal = this.manager.downgradeVIPUser(user)
     this.users.removeUser(user.getEmail())
     this.users.addUser(userNormal)
+  }
+
+  loadData(): void {
+    this.employees.loadEmployees()
+    this.users.loadUsers()
+    this.pokemons.loadPokemonList()
+    this.manager = new Manager(
+      'Leticia',
+      30,
+      12345678910,
+      'leticia@gmail.com',
+      'senha',
+      100000
+    )
+    this.users.listUsers().forEach(user => {
+      let p1 = new Pokemon(
+        'Clefairy',
+        ['fairy'],
+        35,
+        'Aérea',
+        'bio',
+        true,
+        15,
+        200
+      )
+      user.rentPokemon(p1, 5, 'Helping')
+      user.endRent(p1)
+    })
   }
 }

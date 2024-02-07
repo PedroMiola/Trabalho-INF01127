@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Dispatch, useState, SetStateAction } from 'react'
 import { Pokemon } from 'classes/pokemon/pokemon'
 import { Button } from 'components/Button'
 
@@ -8,6 +8,7 @@ type PokeShowcase = {
   Poke: Pokemon
   onSelect: () => void
   onClose: () => void
+  setRentDays: Dispatch<SetStateAction<number>>
 }
 
 export const PokemonDisplayComponent = (props: PokeShowcase) => {

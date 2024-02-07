@@ -29,7 +29,7 @@ export class HashEmployees {
   //   email: string,
   //   password: string,
   //   paymentVal: number
-  loadEmployees(employees: Employee[]) {
+  loadEmployees(): void {
     let e1 = new Employee(
       'Pedro Poli',
       22,

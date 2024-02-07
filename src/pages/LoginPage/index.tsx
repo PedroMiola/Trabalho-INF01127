@@ -2,15 +2,19 @@ import React, { Dispatch, SetStateAction, useState } from 'react'
 import { MainContainer } from 'components/MainContainer'
 import { Button } from 'components/Button'
 import { Server } from 'classes/server'
+import { LogoA } from 'components/Logo'
 import './LoginPage.css'
-
+import { User } from 'classes/users/clients/user'
 type AwakenTrainerTextsProps = {
   setPage: Dispatch<SetStateAction<string>>
 }
 
 const AwakenTrainerTexts = ({ setPage }: AwakenTrainerTextsProps) => {
   return (
-    <div>
+    <div id="trainer-awaits-container">
+      <div id="logo-hello-container">
+        <LogoA />
+      </div>
       <div className="text1" id="header-text">
         Desperte o treinador que há em você!
       </div>
@@ -37,6 +41,8 @@ const AwakenTrainerTexts = ({ setPage }: AwakenTrainerTextsProps) => {
 
 type LoginContainerProps = {
   setPage: Dispatch<SetStateAction<string>>
+  setUser: Dispatch<SetStateAction<User | undefined>>
+  server: Server
 }
 
 const LoginContainer = (props: LoginContainerProps) => {
@@ -49,10 +55,10 @@ const LoginContainer = (props: LoginContainerProps) => {
     event.preventDefault()
     // Access the email and password from formData
     const { email, password } = formData
-    const approve = Server.approveLogin(email, password)
+    const approve = props.server.approveLogin(email, password)
     if (approve) {
-      //Make it go to page Dashboard
-
+      console.log('login aprovado')
+      props.setUser(props.server.users.getUser(email))
       props.setPage('Dashboard')
     } else {
       alert('Usuário ou senha inválidos')
@@ -98,7 +104,11 @@ const LoginContainer = (props: LoginContainerProps) => {
           onChange={handleInputChange}
         />
         <div id="button-login">
-          <button type="submit">Login</button>
+          <Button
+            submit={true}
+            onClick={() => console.log('oioi')}
+            ButtonText="Login"
+          />
         </div>
       </form>
     </div>
@@ -107,13 +117,21 @@ const LoginContainer = (props: LoginContainerProps) => {
 
 type LoginPageProps = {
   setPage: Dispatch<SetStateAction<string>>
+  server: Server
+  setUser: Dispatch<SetStateAction<User | undefined>>
 }
 
 export const LoginPage = (props: LoginPageProps) => {
   return (
     <MainContainer
       Component1={<AwakenTrainerTexts setPage={props.setPage} />}
-      Component2={<LoginContainer setPage={props.setPage} />}
+      Component2={
+        <LoginContainer
+          setUser={props.setUser}
+          server={props.server}
+          setPage={props.setPage}
+        />
+      }
     />
   )
 }

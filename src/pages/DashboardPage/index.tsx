@@ -7,10 +7,11 @@ import { Pokemon } from 'classes/pokemon/pokemon'
 
 type DashboardPageProps = {
   setPage: Dispatch<SetStateAction<string>>
+  user: User | undefined
 }
 
 type UserDashboardProps = {
-  user: User
+  user: User | undefined
 }
 
 const RamonDino = new Pokemon(
@@ -76,11 +77,11 @@ testUser.endRent(Pedro)
 testUser.rentPokemon(Pedro, 1, 'Spotting')
 testUser.endRent(Pedro)
 
-const UserDashoard = () => {
+const UserDashoard = (props: UserDashboardProps) => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-row-default" id="dashboard-row-rent-numbers">
-        Número de alguéis: {`${testUser.getNuberOfHistoryRentedPokemons()}`}
+        Número de alguéis: {`${props.user?.getNuberOfHistoryRentedPokemons()}`}
       </div>
       <div
         className="dashboard-row-default"
@@ -93,30 +94,29 @@ const UserDashoard = () => {
         className="dashboard-row-default"
         id="dashboard-row-rent-total-durantion"
       >
-        Tempo total de aluguél: {`${testUser.getTimeOfRentedPokemons()}`} dias
+        Tempo total de aluguél: {`${props.user?.getTimeOfRentedPokemons()}`}{' '}
+        dias
       </div>
       <div
         className="dashboard-row-default"
         id="dashboard-row-favorite-pokemon"
       >
         <div>
-          <div id="user-favorite-pokemon-string">
-            teste aquiiiiiiiiiiiiiiiiiiiiiiiiii
-          </div>
+          <div id="user-favorite-pokemon-string"></div>
           <div id="user-favorite-pokemon-times-rented">
             Alugado{' '}
-            {`${testUser
-              .getFavoritePokemon()
-              .getNumberOfRentsByUser(testUser)}`}{' '}
+            {`${props.user
+              ?.getFavoritePokemon()
+              .getNumberOfRentsByUser(props.user)}`}{' '}
             vezes
           </div>
         </div>
         <div id="user-favorite-pokemon-container">
           <div id="user-favorite-pokemon-png">
-            <img src={testUser.getFavoritePokemon().getImage()} alt="" />
+            <img src={props.user?.getFavoritePokemon().getImage()} alt="" />
           </div>
           <div id="user-favorite-pokemon-name">
-            {testUser.getFavoritePokemon().getName()}
+            {props.user?.getFavoritePokemon().getName()}
           </div>
         </div>
       </div>
@@ -132,20 +132,26 @@ export const DashboardPage = (props: DashboardPageProps) => {
         <ButtonGroup
           Button1OnClick={() => props.setPage('Carrosel')}
           Button1Text="Carrosel"
-          Button2OnClick={() => props.setPage('Login')}
-          Button2Text="Login"
-          Button3OnClick={() => props.setPage('Dashboard')}
+          Button2OnClick={() => props.setPage('NoLogin')}
+          Button2Text="Home"
+          Button3OnClick={() => {
+            if (props.user) {
+              props.setPage('Dashboard')
+            } else {
+              alert('Necessário fazer Login')
+            }
+          }}
           Button3Text="Dashboard"
           Button4OnClick={() => props.setPage('CreditCard')}
           Button4Text="CreditCard"
           Button5OnClick={() => props.setPage('Login')}
-          Button5Text="Login"
+          Button5Text="Trocar Usuário"
         />
       }
       Component2={
         <>
-          <h1>Bem vindo Fulano!</h1>
-          <UserDashoard />
+          <h1>Bem vindo {`${props.user?.getName()}`}!</h1>
+          <UserDashoard user={props.user} />
         </>
       }
     />
