@@ -30,7 +30,7 @@ const BirthdayBox = () => {
       <input className='inputRegisterPage'
         type="text"
         id="birthday"
-        placeholder=" Data de aniversário (dd/mm/yyyy)"
+        placeholder=" Data de nascimento (dd/mm/yyyy)"
         style={{ width: '100%', height: '50px' }}
         pattern="\d{2}\/\d{2}\/\d{4}"
         value={birthday}
@@ -134,7 +134,7 @@ const RegisterText = () => {
     <>
       <div className='mainContainer'>
         <div className='topContainer'>
-          Cadastro
+          Cadastre-se
         </div>
         <div className='formContainer'>
           <div className='formLine'>
