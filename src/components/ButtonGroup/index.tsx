@@ -20,30 +20,35 @@ export const ButtonGroup = (props: ButtonGroupProps) => {
     <div className="button-group">
       <div id="buttons-from-group">
         <Button
+          submit={false}
           ButtonText={props.Button1Text}
           onClick={() => props.Button1OnClick()}
         />
       </div>
       <div id="buttons-from-group">
         <Button
+          submit={false}
           ButtonText={props.Button2Text}
           onClick={() => props.Button2OnClick()}
         />
       </div>
       <div id="buttons-from-group">
         <Button
+          submit={false}
           ButtonText={props.Button3Text}
           onClick={() => props.Button3OnClick()}
         />
       </div>
       <div id="buttons-from-group">
         <Button
+          submit={false}
           ButtonText={props.Button4Text}
           onClick={() => props.Button4OnClick()}
         />
       </div>
       <div id="buttons-from-group">
         <Button
+          submit={false}
           ButtonText={props.Button5Text}
           onClick={() => props.Button5OnClick()}
         />

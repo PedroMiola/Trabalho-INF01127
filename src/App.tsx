@@ -1,11 +1,13 @@
 import './App.css'
 import React, { useState } from 'react'
+import { User } from 'classes/users/clients/user'
 import { NoLoginPage } from 'pages/NoLoginPage'
 import { LoginPage } from 'pages/LoginPage'
 import { RegisterPage } from 'pages/RegisterPage'
 import { CarroselPage } from 'pages/CarroselPage'
 import { CreditCardFormPage } from 'pages/CreditCardFormPage'
 import { DashboardPage } from 'pages/DashboardPage'
+import { Server } from 'classes/server'
 
 export type Logininfo = {
   isLoggedIn: boolean
@@ -26,7 +28,7 @@ export const App = () => {
       ) : currentPage === 'Dashboard' ? (
         <DashboardPage setPage={setCurrentPage} />
       ) : currentPage === 'Carrosel' ? (
-        <CarroselPage setPage={setCurrentPage} />
+        <CarroselPage carroselMode={0} setPage={setCurrentPage} />
       ) : currentPage === 'CreditCard' ? (
         <CreditCardFormPage />
       ) : (

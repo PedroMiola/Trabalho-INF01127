@@ -35,14 +35,19 @@ import './Button.css'
 type ButtonProps = {
   onClick: () => void
   ButtonText: string
+  submit: boolean
 }
 
 export function Button(props: ButtonProps) {
   return (
     <>
-      <div onClick={() => props.onClick()} className="button-class">
-        {props.ButtonText}
-      </div>
+      <button
+        type={props.submit ? 'submit' : 'button'}
+        onClick={() => props.onClick()}
+        className="button-class"
+      >
+        <p id="button-default-default-text">{props.ButtonText}</p>
+      </button>
     </>
   )
 }

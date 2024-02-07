@@ -5,44 +5,36 @@
   margin: auto;
 }
 
-.mainContainer{
-
+.mainContainer {
   font-family: 'EncondeSansExpanded-SemiBold';
   margin: 0px 5% 0px 5%;
   width: 90%;
   height: auto;
   align-items: center;
   justify-content: center;
-
 }
 
-.topContainer{
-
+.topContainer {
   font-size: 48px;
   color: #222852;
   height: 15%;
   width: 100%;
   margin-top: 30px;
   margin-bottom: 50px;
-
 }
 
-.formContainer{
-
+.formContainer {
   width: 100%;
   height: 50%;
   /* display: flex; */
   justify-content: center;
   align-items: center;
   padding-top: 10px;
-
 }
 
-.formLine{
-  
+.formLine {
   display: flex;
   margin-bottom: 30px;
-  
 }
 
 .inputRegisterPage {
@@ -52,19 +44,18 @@
   background-color: #d9d9d9;
 }
 
-.formSidebySide{
+.formSidebySide {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-
-.buttonStyle{
+.buttonStyle {
   width: 30%;
   height: 70px;
   align-items: center;
   justify-content: center;
-  margin-top: 140px;
+  margin-top: 90px;
   font-size: 30px;
   margin-left: auto;
   margin-right: auto;

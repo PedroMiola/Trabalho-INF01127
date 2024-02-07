@@ -2,10 +2,11 @@
 
 .pokemon-card-container {
   height: 120px;
-  width: 500px;
+  width: 550px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  justify-content: center;
+  margin: auto 0 auto 0;
 }
 
 #pokemon-card-header {
@@ -14,7 +15,7 @@
   width: fit-content;
 }
 
-#pokemon-card-png {
+.pokemon-card-png-container {
   height: 120px;
   width: 120px;
   border-radius: 12px;
@@ -22,10 +23,16 @@
   border-style: solid;
 }
 
+#pokemon-card-png {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
 #pokemon-card-divbar {
   background-color: black;
   width: 380px;
-  height: 5px;
+  height: 3px;
 }
 
 .pokemon-card-info-text {
@@ -55,36 +62,33 @@
 .pokemon-card-buttons-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-#pokemon-card-button-select {
+#pokemon-card-buttons {
   font-size: 15px;
-  height: 32px;
+  height: 35px;
   width: 120px;
 }
 
-#pokemon-card-button-adopt {
-  font-size: 15px;
-  height: 32px;
-  width: 120px;
-}
-
-#pokemon-card-button-bio {
+#pokemon-card-buttons-bio {
   font-size: 10px;
-  height: 32px;
+  height: 35px;
   width: 120px;
 }
 
 .carrosel-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  height: 500px;
 }
 
 .carrosel-arrows {
   font-family: 'EncondeSansExpanded-ExtraBold';
   font-size: 40px;
   height: fit-content;
-  margin: auto;
+  margin: auto 30px auto 30px;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -93,4 +97,47 @@
   background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
+}
+
+#pokemon-card-info-type-text {
+  margin-right: 6px;
+}
+
+#pokemon-types-image-row {
+  display: flex;
+  flex-direction: row;
+}
+
+#pokemon-type-images {
+  height: 30px;
+  width: 30px;
+  margin-right: 6px;
+}
+
+#carrosel-items-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/*=====================================================================================================================================*/
+
+.infoContainer {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.infoText {
+  text-align: left;
+  width: 60%;
+  height: 10%;
+}
+
+.underBar {
+  width: 60%;
+  border: 3px solid #727376;
 }

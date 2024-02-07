@@ -1,28 +1,27 @@
 import { speciesNames } from 'dictionaries/species'
+import { validPokemonTypes } from 'dictionaries/types'
 import { Rent } from './renting/rent'
+import { User } from 'classes/users/clients/user'
 
 export class Pokemon {
   name: string
-  type: [string, string]
+  type: string[]
   pokeIndex: number
   mountType: string
-  minAge: number
   biography: string
   //price: number; //pq tem price e price per day ainda ?
-  isFree: boolean //isAvailable
+  free: boolean //isAvailable
   historyRented: Rent[]
   id: number
   pricePerDay: number
 
   constructor(
     name: string,
-    type: [string, string],
+    type: string[],
     pokeIndex: number,
     mountType: string,
-    minAge: number,
     biography: string,
-    isFree: boolean,
-    historyRented: Rent[],
+    free: boolean,
     id: number,
     pricePerDay: number
   ) {
@@ -30,11 +29,10 @@ export class Pokemon {
     this.type = type
     this.pokeIndex = pokeIndex
     this.mountType = mountType
-    this.minAge = minAge
     this.biography = biography
     //this.price = price;
-    this.isFree = isFree
-    this.historyRented = historyRented
+    this.free = free
+    this.historyRented = []
     this.id = id
     this.pricePerDay = pricePerDay
   }
@@ -48,8 +46,13 @@ export class Pokemon {
     return this.pricePerDay
   }
 
-  addRent(rent: Rent): void {
+  addRent(): void {
+    this.setFree(false)
+  }
+
+  public endRent(rent: Rent): void {
     this.historyRented.push(rent)
+    this.setFree(true)
   }
 
   getId(): number {
@@ -80,21 +83,30 @@ export class Pokemon {
     return imagePath
   }
 
+  getBio(): string {
+    return this.biography
+  }
+
+  getName(): string {
+    return this.name
+  }
+
   getTypeImage(): string[] {
     const images: string[] = []
 
     const type1Image = this.getImageForType(this.type[0])
     images.push(type1Image)
-
-    // if (
-    //   this.type[0] !== this.type[1] &&
-    //   this.type[1] !== '' &&
-    //   this.type[1].toLowerCase() !== 'null'
-    // ) {
-    //   const type2Image = this.getImageForType(this.type[1])
-    //   images.push(type2Image)
-    // }
-
+    if (this.type.length > 1) {
+      if (
+        this.type[0] !== this.type[1] &&
+        this.type[1] !== '' &&
+        this.type[1].toLowerCase() !== 'null' &&
+        validPokemonTypes[this.type[1].toLowerCase()] === true
+      ) {
+        const type2Image = this.getImageForType(this.type[1])
+        images.push(type2Image)
+      }
+    }
     return images
   }
 
@@ -102,5 +114,23 @@ export class Pokemon {
     const formattedType = type.toLowerCase()
     const image = require(`assets/images/${formattedType}.png`)
     return image
+  }
+
+  public getNumberOfRentsByUser(user: User): number {
+    let count = 0
+    for (let i = 0; i < this.historyRented.length; i++) {
+      if (this.historyRented[i].getUser() === user) {
+        count++
+      }
+    }
+    return count
+  }
+
+  public isFree(): boolean {
+    return this.free
+  }
+
+  public setFree(free: boolean): void {
+    this.free = free
   }
 }

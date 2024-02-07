@@ -12,16 +12,15 @@ const LauraLapras = new Pokemon(
   ['water', 'ice'],
   131,
   'Aquática',
-  0,
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vestibulum magna magna, ac auctor magna dapibus at. Pellentesque interdum nisi augue, eu vestibulum turpis condimentum eu. Suspendisse nec euismod lorem. Proin nisl metus, interdum vel varius eget, sodales blandit tortor. Donec velit neque, auctor a dignissim non',
   true,
-  [],
   1,
   200
 )
 
 type CarroselPageProps = {
   setPage: Dispatch<SetStateAction<string>>
+  carroselMode: number
 }
 
 export const CarroselPage = (props: CarroselPageProps) => {
@@ -31,13 +30,11 @@ export const CarroselPage = (props: CarroselPageProps) => {
 
   const Pikachu = new Pokemon(
     'Johnny',
-    ['electric', 'eletric'],
+    ['electric'],
     25,
     'Terrestre',
-    0,
     'bio',
     false,
-    [],
     2,
     100
   )
@@ -47,10 +44,8 @@ export const CarroselPage = (props: CarroselPageProps) => {
     ['fire', 'flying'],
     6,
     'Aérea',
-    0,
     'bio',
     true,
-    [],
     3,
     300
   )
@@ -60,10 +55,8 @@ export const CarroselPage = (props: CarroselPageProps) => {
     ['fire', 'flying'],
     6,
     'Aérea',
-    0,
     'bio',
     true,
-    [],
     3,
     300
   )
@@ -73,23 +66,19 @@ export const CarroselPage = (props: CarroselPageProps) => {
     ['fire', 'flying'],
     6,
     'Aérea',
-    0,
     'bio',
     true,
-    [],
     3,
     300
   )
 
   const A_Ninetales = new Pokemon(
-    'Kaguya',
-    ['ice', 'fairy'],
+    'Jiraya',
+    ['grass'],
     253,
     'Aérea',
-    0,
     'bio',
     true,
-    [],
     3,
     300
   )
@@ -99,10 +88,8 @@ export const CarroselPage = (props: CarroselPageProps) => {
     ['ice', 'fairy'],
     457,
     'Aérea',
-    0,
-    'bio',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vestibulum magna magna, ac auctor magna dapibus at. Pellentesque interdum nisi augue, eu vestibulum turpis condimentum eu. Suspendisse nec euismod lorem. Proin nisl metus, interdum vel varius eget, sodales blandit tortor. Donec velit neque, auctor a dignissim non',
     true,
-    [],
     3,
     300
   )
@@ -128,16 +115,46 @@ export const CarroselPage = (props: CarroselPageProps) => {
     LauraLapras,
     A_Ninetales,
     Pikachu,
+    A_Ninetales2,
     A_Ninetales2
   ]
+
+  const CarroselComponent = () => {
+    return (
+      <>
+        <div className="text2" id="form-header-text">
+          {props.carroselMode === 0
+            ? 'Alugue um Pokémon'
+            : props.carroselMode === 1
+            ? 'Adote um Pokémon'
+            : 'Histórico'}
+        </div>
+        <div id="carrosel-component-container">
+          {!currentPokemon ? (
+            <PokemonCarrosel
+              Pokemons={PokemonList4}
+              setCurrentPokemon={setCurrentPokemon}
+              isCarroselMode={props.carroselMode}
+            />
+          ) : (
+            <PokemonDisplayComponent
+              Poke={currentPokemon}
+              onClose={() => setCurrentPokemon(undefined)}
+              onSelect={() => props.setPage('CreditCard')}
+            />
+          )}
+        </div>
+      </>
+    )
+  }
 
   return (
     <MainContainer
       Component1={
         <ButtonGroup
-          Button1OnClick={() => props.setPage('Carrosel')}
-          Button1Text="Carrosel"
-          Button2OnClick={() => props.setPage('Login')}
+          Button1OnClick={() => props.setPage('Dashboard')}
+          Button1Text="Voltar para home"
+          Button2OnClick={() => props.setPage('Carrosel')}
           Button2Text="Login"
           Button3OnClick={() => props.setPage('Dashboard')}
           Button3Text="Dashboard"
@@ -147,23 +164,7 @@ export const CarroselPage = (props: CarroselPageProps) => {
           Button5Text="Login"
         />
       }
-      Component2={
-        <>
-          {!currentPokemon ? (
-            <PokemonCarrosel
-              Pokemons={PokemonList4}
-              setCurrentPokemon={setCurrentPokemon}
-              isRentMode={true}
-            />
-          ) : (
-            <PokemonDisplayComponent
-              Poke={currentPokemon}
-              onClose={() => setCurrentPokemon(undefined)}
-              onSelect={() => props.setPage('CreditCard')}
-            />
-          )}
-        </>
-      }
+      Component2={<CarroselComponent />}
     />
   )
 }

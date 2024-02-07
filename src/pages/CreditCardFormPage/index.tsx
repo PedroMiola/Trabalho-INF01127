@@ -47,11 +47,15 @@ const CreditCardForm = () => {
             className="credit-card-form-input"
             type="number"
             id="credit-card-form-security-number"
-            placeholder="Cóodigo de segurança"
+            placeholder="Código de segurança"
           />
         </div>
         <div id="credit-card-form-verify-button">
-          <Button ButtonText="Verificar" onClick={() => console.log('oi')} />
+          <Button
+            submit={false}
+            ButtonText="Verificar"
+            onClick={() => console.log('oi')}
+          />
         </div>
       </form>
     </div>
