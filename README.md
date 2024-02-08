@@ -1,6 +1,6 @@
 # AlokaMon - Sistema de Aluguel e Adoção de *Pokémon*
 
-![Logo](main/src/assets/images/alokamon_logo.png)
+![Logo](https://raw.githubusercontent.com/PedroMiola/Trabalho-INF01127/main/src/assets/images/alokamon_logo.png)
 
 ## Descrição
 
